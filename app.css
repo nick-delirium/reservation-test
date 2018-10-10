@@ -1,0 +1,185 @@
+body {
+  background-color: #f8f8f8;
+}
+
+.time, .calendar {
+  display:inline-block;
+  height: 100%;
+}
+.time {
+  width: 60%;
+}
+span {
+  font-family: OpenSans;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  text-align: center;
+  color: #333333;
+}
+.inner {
+  margin-top: 30px;
+  padding: 0 20px;
+}
+.timeblock {
+  margin-top:10px;
+}
+.top {
+  margin: 35px auto 10px;
+  width: 45%
+}
+.days {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.calendar-header {
+  color: #333333;
+}
+.dimmed {
+  color: #999999!important;
+}
+.timeAwal {
+  line-height: 3em;
+  width: 80px;
+  font-size: 12px;
+  height: 40px;
+  border-radius: 70px;
+  padding: 5px 10px;
+  margin: 2.5px;
+  background-color: #ffffff;
+}
+.calendar {
+  width: 40%;
+  float:left;
+  text-align:center
+}
+.card {
+  margin: 30px auto;
+  width: 90%;
+  box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fafafa;
+}
+.header {
+  height: 100px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(61, 60, 59, 0.1), rgba(61, 60, 59, 0.5) 54%, rgba(61, 60, 59, 0.8));
+}
+.title, .info {
+  font-family: OpenSans;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+.info {
+  opacity: 0.8;
+}
+.title, .info {
+  margin: 5px 10px
+}
+.back-white {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  margin: 10px 10px 0px;
+}
+td {
+  width: 10px;
+  height: 10px;
+  border-radius: 80px;
+  cursor: pointer;
+}
+.active { 
+  background-color: #e16640;
+}
+.calTable tr td, .calTable tr th{
+  width: 10px;
+  height: 22px;
+  font-family: OpenSans;
+  font-size: 16px;
+  font-weight: 300!important;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #444444;
+}
+.body {
+  width: 100%;
+  background-color: #fafafa;
+  overflow:auto;
+  margin-bottom: 20px
+}
+.footer {
+  background-color: #ffffff;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center; 
+}
+.btn {
+  border-radius: 30px;
+  background-color: #e16640;
+  color: white;
+  width: 160px;
+  height: 30px;
+  margin: 15px
+}
+.mobileView {
+  display:none
+}
+@media (max-width: 780px) {
+  .personsSelect {
+    width:70%
+  }
+  body {
+    margin: 0
+  }
+  .inner {
+    margin-top:10px
+  }
+  .card {
+    width:100vw;
+    height: 100vh
+  }
+  .calendar {
+    display: none;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw
+  }
+  .time {
+    width: 100%
+  }
+  .mobileView {
+    display: block;
+    align-items: center;
+  }
+  hr.mobileView {
+    width: 100vw;
+    color: #eeeeee
+  }
+  .mobileCalendar {
+    padding: 0 20px;
+  }
+  .dropArrow {
+    float:right;
+    margin-top: 5px
+  }
+  .footer .btn {
+    height: 50px;
+    width: 100%;
+    border-radius: 0;
+    margin: 0;
+  }
+  .card {
+    margin: 0
+  }
+}

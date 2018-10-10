@@ -1,0 +1,95 @@
+<!doctype html>
+<html ng-app="cardApp">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+
+      <script src="component.js"></script>
+    
+      <link rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <div class='res-edit'>
+      <div class='card'>
+        <div class='header' ng-controller='titleController'>
+            <img src="img/back-white.svg"
+            class="back-white">       
+          <h2 class='title'>Ciel de Paris </h2>
+          <h4 class='info'>Table for {{$root.form.type}} <span style='color:white' ng-if='$root.selectedTime'>@ {{$root.selectedTime}} </span></h4>
+        </div>
+        <div class='body'>
+          <div class="calendar">
+            <div class="top inner">
+              <img src="img/drop@3x.png" style="vertical-align:middle;transform: rotate(90deg)" width='16px' alt="">
+              <span class='calendar-header'>October 2018</span>
+              <img src="img/drop@3x.png" style="vertical-align:middle;transform: rotate(270deg)" width='16px' alt="">
+            </div>
+            <div class='days'>
+              <table class='calTable' ng-controller="calendarController">
+                  <tr>
+                      <th>MO</th>
+                      <th>TU</th>
+                      <th>WE</th>
+                      <th>TH</th>
+                      <th>FR</th>
+                      <th>SA</th>
+                      <th>SU</th>
+                    </tr>
+                <tr ng-repeat="line in datelist">
+                  <td class='dimmed' ng-if='line.length < 7' ng-repeat="date in lineDepressed">{{date}}</td>
+                  <td ng-repeat="date in line" ng-click='setActive(date)' ng-class="date == selected ? 'active' : ''">{{date}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div ng-controller='personsController' class="time">
+            <div class="inner guests">
+              <img style="vertical-align:middle" src="img/group@3x.png" alt="group-image" width='16px'>
+              <span>Table for </span>
+              <select ng-model='$root.form.type' class='personsSelect' ng-change='requestTable()' required ng-options='option.value as option.name for option in $root.typeOptions'></select> 
+              <img src="img/drop@3x.png" class='dropArrow mobileView' style="vertical-align:middle" width='16px' alt="">
+            </div>
+            <hr color='#eeeeee' class='mobileView'>
+            <div ng-controller='mobileCal' class='mobileView mobileCalendar'>
+              <div style='cursor: pointer' ng-click='show = !show'>
+                <img src="img/date@3x.png" style="vertical-align:middle" width='16px' alt="">
+                <span>{{$root.selected == $root.today ? "Today" : "October, "+$root.selected}}</span>
+                <img src="img/drop@3x.png" class='dropArrow' style="vertical-align:middle" width='16px' alt="">
+              </div>
+              <table ng-if='show' class='calTable' ng-controller="calendarController">
+                <tr>
+                  <th>MO</th>
+                  <th>TU</th>
+                  <th>WE</th>
+                  <th>TH</th>
+                  <th>FR</th>
+                  <th>SA</th>
+                  <th>SU</th>
+                  </tr>
+                <tr ng-repeat="line in datelist">
+                  <td class='dimmed' ng-if='line.length < 7' ng-repeat="date in lineDepressed">{{date}}</td>
+                  <td ng-repeat="date in line" ng-click='setActive(date)' ng-class="date == selected ? 'active' : ''">{{date}}</td>
+                </tr>
+              </table>
+            </div>
+            <hr color='#eeeeee' class='mobileView'>
+            <div ng-controller='timeController' class="inner orderTime">
+              <span class='dimmed'>DINNER</span>
+              <div class="timeblock">
+                <span ng-if='$root.error == null' class='timeAwal' ng-click='selectTime(time)' style='cursor: pointer;' ng-class='time == selectedTime ? "active": ""' ng-repeat="time in $root.timelist"> {{time}}</span>
+                <span ng-if='$root.error'>{{$root.error}}</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class='footer'>
+          <button class='btn'>UPDATE</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
