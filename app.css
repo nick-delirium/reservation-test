@@ -62,8 +62,12 @@ span {
   float:left;
   text-align:center
 }
+.main {
+  width:100vw;
+  height:100vh
+}
 .card {
-  margin: 30px auto;
+  margin: auto;
   width: 1000px;
   box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.05);
   background-color: #fafafa;
@@ -71,7 +75,7 @@ span {
 .header {
   height: 200px;
   width: 1000px;
-  background-image: url("img/rest.jpg");
+  background-image: url("img/rest2.png");
   background-repeat: no-repeat;
   background-size: cover
 }
@@ -199,4 +203,16 @@ td {
   .card {
     margin: 0
   }
+  
+}
+select {
+  padding:5px 20px 5px 5px;
+  -webkit-appearance: none!important;
+  -moz-appearance: none!important;
+  appearance: none!important;
+  background: url("img/drop@3x.png") 97% / 25% no-repeat;
+}
+
+html, body {
+  height: 100%;
 }
