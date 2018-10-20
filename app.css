@@ -66,9 +66,19 @@ span {
   width:100vw;
   height:100vh
 }
+body {
+  height: 100vh;
+  margin: 0;
+  position: relative;
+}
 .card {
+  position: absolute;
   margin: auto;
   width: 1000px;
+  left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
   box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.05);
   background-color: #fafafa;
 }
